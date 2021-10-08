@@ -6,12 +6,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         tools:context=".MainActivity">
 
-        <TextView
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <Button
+            android:id="@+id/camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:text="camera"/>
+
+        <Button
+            android:id="@+id/btnAlbum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gallery"/>
+
 
     </LinearLayout>
 </layout>
