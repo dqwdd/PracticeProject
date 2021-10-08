@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        tools:context=".MainActivity">
+        tools:context=".GalleryActivity">
 
         <ImageView
             android:id="@+id/imageView"
@@ -15,24 +15,13 @@
             android:layout_height="150dp"
             android:src="@mipmap/ic_launcher"/>
 
-        <Button
-            android:id="@+id/camera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="camera"/>
+
 
         <Button
             android:id="@+id/btnAlbum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="gallery"/>
-
-
-        <Button
-            android:id="@+id/intent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="intent"/>
 
 
     </LinearLayout>

@@ -45,12 +45,12 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvent() {
-
+/*
         binding.imageView.setOnClickListener {
 
 
 
-
+/*
             val alert = AlertDialog.Builder(mContext)
             alert.setMessage("프로필 이미지를 변경하시겠습니까?")
             alert.setNegativeButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
@@ -61,15 +61,23 @@ class MainActivity : BaseActivity() {
             })
             alert.setPositiveButton("취소", null)
             alert.show()
-
-
+*/
+            val myIntent = Intent(mContext, GalleryActivity::class.java)
+            mContext.startActivity(myIntent)
 
 
         }
+*/
 
+        binding.intent.setOnClickListener {
+            val myIntent = Intent(mContext, GalleryActivity::class.java)
+            mContext.startActivity(myIntent)
+        }
 
         binding.camera.setOnClickListener {
+
             CallCamera()
+
         }
 
 
@@ -82,8 +90,6 @@ class MainActivity : BaseActivity() {
 
     override fun setValues() {
     }
-
-
 
 
 
@@ -109,33 +115,6 @@ class MainActivity : BaseActivity() {
                     }
                 }
             }
-        }
-    }
-
-
-
-
-    fun checkPermission(permissions: Array<out String>, type: Int): Boolean
-    {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            for (permission in permissions) {
-                if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(this, permissions, type)
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
-
-
-    fun CallCamera()
-    {
-        if (checkPermission(CAMERA, CAMERA_CODE) && checkPermission(STORAGE, STORAGE_CODE)) {
-            val itt = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(itt, CAMERA_CODE)
         }
     }
 
@@ -175,7 +154,6 @@ class MainActivity : BaseActivity() {
             }
         }
 
-
         return uri;
     }
 
@@ -197,10 +175,10 @@ class MainActivity : BaseActivity() {
                     val uri = data?.data
                     binding.imageView.setImageURI(uri)
                 }
+
             }
         }
     }
-
 
 
 
@@ -223,6 +201,30 @@ class MainActivity : BaseActivity() {
     }
 
 
+
+    fun checkPermission(permissions: Array<out String>, type: Int): Boolean
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            for (permission in permissions) {
+                if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, permissions, type)
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+
+    fun CallCamera()
+    {
+        if (checkPermission(CAMERA, CAMERA_CODE) && checkPermission(STORAGE, STORAGE_CODE)) {
+            val itt = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(itt, CAMERA_CODE)
+        }
+
+    }
 
 
 
